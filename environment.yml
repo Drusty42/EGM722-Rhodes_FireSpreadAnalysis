@@ -1,0 +1,13 @@
+name: FireSpreadAnalysis
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - geopandas
+  - cartopy
+  - notebook
+  - rasterio
+  - pyepsg
+  - folium
+prefix: C:\Users\William\EGM722-Rhodes_FireSpreadAnalysis
