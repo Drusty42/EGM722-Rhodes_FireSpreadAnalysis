@@ -128,11 +128,6 @@ buffer_legend_handle = mpatches.Patch(facecolor='red', edgecolor='none', alpha=0
 xmin, ymin, xmax, ymax = outline.total_bounds
 ax.add_feature(outline_feature)
 
-# using the boundary of the shapefile features, zoom the map to the area of interest
-ax.set_extent([xmin-0.15, xmax+0.01, ymin-0.01, ymax+0.01], crs=myCRS)
-
-# adds a colored background
-ax.add_patch(plt.Rectangle((xmin - 5000, ymin - 5000), xmax - xmin + 10000, ymax - ymin + 10000, facecolor='lightblue'))
 # generates matplotlib handles to create a legend of features to be used within the map
 
 def generate_handles(labels, colors, halo_color='white', edge='k', alpha=1):
@@ -172,6 +167,12 @@ legend_handles.append(buffer_legend_handle)
 
 # creates the legend
 plt.legend(handles=legend_handles, title='Legend', loc='upper left')
+
+# using the boundary of the shapefile features, zoom the map to the area of interest
+ax.set_extent([xmin-0.15, xmax+0.01, ymin-0.01, ymax+0.01], crs=myCRS)
+
+# adds a colored background
+ax.add_patch(plt.Rectangle((xmin - 5000, ymin - 5000), xmax - xmin + 10000, ymax - ymin + 10000, facecolor='lightblue'))
 
 # adds a title text box to the top center of the map
 title_text = "Rhodes Wildfire Progression 24-27 Aug 2023"
